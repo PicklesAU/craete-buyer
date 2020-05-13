@@ -30,7 +30,7 @@
     "@microsoft/applicationinsights-web": "^2.1.1",
     "@okta/okta-angular": "^1.2.1",
     "@okta/okta-auth-js": "^2.7.0",
-    "@pickles/ds-core": "^0.6.0-buyer-beta-2",
+    "@pickles/ds-core": "^0.6.2-buyer-beta-3",
     "@pickles/ma-address": "^0.2.6-beta",
     "@pickles/ma-create-buyer": "^0.0.1",
     "@typescript-eslint/eslint-plugin": "^2.0.0",

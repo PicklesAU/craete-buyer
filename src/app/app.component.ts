@@ -33,8 +33,12 @@ export class AppComponent {
     /**
      * On Init method
      */
-    async ngOnInit() {
-        this.isAuthenticatedUser();
+    ngOnInit() {
+        this.currentUser = new User();
+        this.currentUser.UserName = 'Pickles User';
+        this.currentUser.Email = 'pickles.user@pickles.com.au';
+        this.isAuthenticated = true;
+        // this.isAuthenticatedUser();
     }
 
     /**

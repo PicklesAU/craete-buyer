@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
-    hostURL: 'http://test-pickles-vdc.australiaeast.cloudapp.azure.com',
+    hostURL: 'http://13.75.164.20',
     applicationInsights: {
         instrumentationKey: '66aee139-0487-40cd-b694-a7efe28c8a1b',
         enableAutoRouteTracking: true,

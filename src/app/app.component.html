@@ -20,7 +20,7 @@
         <div class="column is-6 float-right copyright">
           <a *ngIf="!isAuthenticated" class="footer-short-links-item" (click)="login()">Login</a>
           <a *ngIf="isAuthenticated" class="footer-short-links-item">{{currentUser.Email}}</a>
-          <a *ngIf="isAuthenticated" class="footer-short-links-item" (click)="logout()">Logout</a>
+          <a *ngIf="isAuthenticated" class="footer-short-links-item">Logout</a>
         </div>
       </div>
     </div>
