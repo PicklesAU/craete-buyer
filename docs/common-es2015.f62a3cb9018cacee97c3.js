@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{V4fj:function(x,n,t){"use strict";function r(){return"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,x=>{var n=16*Math.random()|0;return("x"==x?n:3&n|8).toString(16)})}function o(){return Math.random().toString(36).substr(2,9)}t.d(n,"a",(function(){return r})),t.d(n,"b",(function(){return o}))}}]);
