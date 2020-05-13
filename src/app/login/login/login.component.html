@@ -1,0 +1,43 @@
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                  <button [disabled]="loading" class="btn-sm btn-outline-primary">Login</button>
+                  <img *ngIf="loading" class="pl-2" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+              </div>
+              <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+            </form>
+        </div>
+    </div>
+</div> -->
+<div class="container">
+  <div *ngIf="!isAuthenticated">
+    <br>
+    <h1>FrontEnd SPA Login Page</h1>
+    <br>
+    <p>If you‘re viewing this page then you have successfully started this FrontEnd SPA application.</p>
+    <p>This Application shows you how to use the Pickles Okta login service.</p>
+    <p>When you click the login button below, you will be redirected to the login page on your Pickles Okta login page.
+      After you authenticate,
+      you will be returned to this application with an ID Token and Access Token. These tokens will be stored in session
+      storage
+      and can be retrieved at a later time.
+    </p>
+    <br>
+    <pds-button unique-id="create" color="is-primary" label="LOGIN" (click)="login()"></pds-button>
+  </div>
+
+  <div *ngIf="isAuthenticated && userName">
+    <br>
+    <p>Welcome, {{ userName }}!</p>
+    <br>
+    <p>
+      You have successfully authenticated against your Pickels Okta, and have been redirected back to this application.
+      You now have an ID Token and access token in session storage.
+      <!-- Visit the <a href="/profile">My Profile</a> page to take a look inside the ID Token. -->
+    </p>
+    <br>
+    <pds-button unique-id="create" color="is-primary" label="Go to Buyer Management" (click)="location.href = '/buyer'"></pds-button>
+  </div>
+</div>

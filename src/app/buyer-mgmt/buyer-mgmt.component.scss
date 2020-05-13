@@ -1,0 +1,40 @@
+.component-content {
+  padding: 30px 100px 30px 100px;
+}
+
+.right {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.page-title-header {
+  margin-bottom: 15px;
+}
+
+.page-content {
+  margin-top: 30px;
+  border: 1px solid #DDDDDD;
+  padding: 50px 30px 50px 30px;
+  background-color: #F4F4F4;
+  color: #6B6B6B;
+
+}
+
+.create-btn-wrapper {
+  width: 150px;
+}
+
+@media (max-width: 768px) {
+  .component-content {
+    padding: 15px;
+  }
+
+  .page-content {
+    margin-top: 30px;
+    width: 100%
+  }
+
+  .create-btn-wrapper {
+    width: 100%;
+  }
+}

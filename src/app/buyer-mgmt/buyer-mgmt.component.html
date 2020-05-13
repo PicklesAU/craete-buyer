@@ -1,0 +1,30 @@
+<div class="component-content">
+  <div class="columns">
+    <div class="column">
+      <div class="page-title-header">
+        <div class="title">Find Buyer</div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="page-title-header right">
+        <div class="create-btn-wrapper">
+          <pds-button is-fullwidth left-icon="add" color="is-primary" label="CREATE NEW" onClick="document.querySelector('pds-drawer[id=create-buyer-drawer]').show();setTimeout(function(){document.querySelector('pds-input input[id=givenNameID]').focus();},500);"></pds-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="page-content">
+        <p>No buyers data to show...</p>
+      </div>
+    </div>
+  </div>
+  <pds-tooltip></pds-tooltip>
+  <pds-button color="is-primary" label="Testing Toolip"
+  data-tooltip="Test tooltip Test tooltip Test tooltip Test tooltip Test tooltip Test tooltip Test tooltip Test tooltip Test tooltip Test tooltip Test tooltip"
+  class="has-tooltip-multiline"
+  is-disabled></pds-button>
+</div>
+<!-- hidden content goes here-->
+<pickles-create-buyer></pickles-create-buyer>

@@ -1,0 +1,28 @@
+<div class="main-content-block-area">
+  <div *ngIf="currentUser">
+    <pds-navbar color="is-primary" hamburger-menu location="Belmore, NSW" notification=true user-menu has-brand></pds-navbar>
+  </div>
+  <div class="maincnt">
+      <div class="row">
+          <div class="col-sm-12 m-0 p-0">
+              <router-outlet></router-outlet>
+          </div>
+      </div>
+  </div>
+  <div class="footer-short" *ngIf="currentUser">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-6 float-left">
+          <span class="copyright">
+            © 2020 Pickles Auctions Pty Limited
+          </span>
+        </div>
+        <div class="column is-6 float-right copyright">
+          <a *ngIf="!isAuthenticated" class="footer-short-links-item" (click)="login()">Login</a>
+          <a *ngIf="isAuthenticated" class="footer-short-links-item">{{currentUser.Email}}</a>
+          <a *ngIf="isAuthenticated" class="footer-short-links-item" (click)="logout()">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

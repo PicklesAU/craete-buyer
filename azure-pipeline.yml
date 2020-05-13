@@ -1,0 +1,85 @@
+trigger:
+  paths:
+    include:
+      - frontend/*
+
+pool:
+  name: Self-Hosted
+steps:
+- task: NodeTool@0
+  displayName: 'Install Node/NPM'
+  inputs:
+    versionSpec: 12.7.0
+    checkLatest: true
+
+- task: Npm@1
+  displayName: 'Npm Install'
+  inputs:
+    workingDir: '$(Build.SourcesDirectory)/frontend'
+    verbose: false
+    customRegistry: useFeed
+    customFeed: '631e7de6-028e-43e4-9421-eb42f9ea3e4f'
+
+- task: Npm@1
+  displayName: 'Npm Run Unit Test'
+  inputs:
+    command: custom
+    workingDir: '$(Build.SourcesDirectory)/frontend'
+    verbose: false
+    customCommand: 'run test-headless'
+
+- task: PublishTestResults@2
+  displayName: 'Publish Unit Test Results'
+  inputs:
+    testResultsFiles: ' $(Build.SourcesDirectory)/frontend/junit/TESTS*.xml'
+    searchFolder: ' $(Build.SourcesDirectory)/frontend/junit'
+    testRunTitle: 'Pickles Frontend Engine Unit Test'
+  condition: succeededOrFailed()
+
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish Unit Test Code Coverage'
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(Build.SourcesDirectory)/frontend/coverage/PicklesFrontEndEngine/cobertura-coverage.xml'
+    reportDirectory: '$(Build.SourcesDirectory)/frontend/coverage/PicklesFrontEndEngine/'
+    additionalCodeCoverageFiles: 'Pickles Frontend Engine Unit Test'
+    failIfCoverageEmpty: true
+  condition: succeededOrFailed()
+
+- task: Npm@1
+  displayName: 'Npm Run Lint'
+  inputs:
+    command: custom
+    workingDir: '$(Build.SourcesDirectory)/frontend'
+    verbose: false
+    customCommand: 'run lint -- --format=stylish'
+  condition: succeededOrFailed()
+
+- task: Npm@1
+  displayName: 'npm run e2e test'
+  inputs:
+    command: custom
+    workingDir: '$(Build.SourcesDirectory)/frontend'
+    verbose: false
+    customCommand: 'run e2e'
+  enabled: true
+
+- task: Npm@1
+  displayName: 'Npm Run Build'
+  inputs:
+    command: custom
+    workingDir: '$(Build.SourcesDirectory)/frontend'
+    verbose: false
+    customCommand: 'run build'
+    customRegistry: useFeed
+    customFeed: '631e7de6-028e-43e4-9421-eb42f9ea3e4f'
+  condition: succeededOrFailed()
+
+- task: Npm@1
+  displayName: 'Npm Publish'
+  inputs:
+    command: publish
+    workingDir: '$(Build.SourcesDirectory)/frontend'
+    verbose: false
+    publishRegistry: useFeed
+    publishFeed: '631e7de6-028e-43e4-9421-eb42f9ea3e4f'
