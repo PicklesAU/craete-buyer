@@ -22,13 +22,12 @@ export const appRoutes: Routes = [
     },
     {
         path: '',
-        redirectTo: '/login',
+        redirectTo: '/buyer',
         pathMatch: 'full',
     },
     {
         path: 'buyer',
         component: BuyerMgmtComponent,
-        canActivate: [OktaAuthGuard],
     },
     {
         path: 'implicit/callback',
